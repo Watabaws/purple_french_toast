@@ -1,0 +1,9 @@
+C-R-Cade
+- Minesweeper
+- Connect-4
+- Blackjack
+- Battleship
+- Tic Tac Toe
+- Chess
+
+* Two players, player 1 selects the game and they do stuff *
