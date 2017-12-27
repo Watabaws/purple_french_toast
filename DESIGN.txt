@@ -1,0 +1,30 @@
+Names: Adam Abbas, Cynthia Cheng
+
+Project: We will create a C Arcade, where two users (players) may communicate with each other to play a variety of games. These players will be allowed to choose their game, and then play against each other.
+
+Interface: This project will be terminal based, with two executable files (one for each player). Player 1 will run the file in their session, setting up the server. Player 2 will then run their own- establishing the connection. Codes will be assigned to the games that are available to play. Player 1 makes the selection, by inputting the code for the desired game. After that, the game is played by the two players until a winner is determined.
+
+Technical Design: 
+Concepts being used:
+Servers 
+Networking - could use switches (to be clarified upon learning it in class) 
+A lot of arrays 
+Files - Make a score report of the game
+Tasks:
+Cynthia: Half the games (Tic Tac Toe, Connect 4, Battleship)
+Adam: Other half of games (Minesweeper, Blackjack, Chess)
+Together: Writing the code which will set up servers and send information between players. 
+Data Structures:
+Arrays of chars (ex. To play Tic Tac Toe users will send and edit a double array of chars) 
+Named and Unnamed Pipes: so players can send information to each other and in the handshake algo named and unnamed pipes are necessary to create a connection between server and client 
+
+Algorithms:
+Three Way Handshake: A process in which the client and server can send and receive data 
+
+Timeline:
+First Week: Finish the server code for servers and clients to communicate between each other 
+Rest: Code as many games as we can and fix any bugs which arise and add score report feature 
+Get easier games (tic-tac-toe, connect-4) done first 
+Chess is a big reach, and will be done last assuming enough time. 
+
+
