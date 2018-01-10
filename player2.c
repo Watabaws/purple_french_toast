@@ -1,4 +1,4 @@
-
+#include "player_connection.c"
 
 int main() {
 
@@ -14,14 +14,14 @@ int main() {
     printf("What is your player name?\n");
     fgets(name, 100, stdin);
     *strchr(name, '\n') = 0;
-    write(to_server, input, sizeof(char *));
 
-    char[3][3] tic_tac_toe;
+    write(to_server, name, sizeof(char *));
+
+    char tic_tac_toe[3][3];
 
     //printboard
 
     read(from_server, p1_move, 4);
 
-    printf("Here is player1's move\n");
-  }
+    printf("Here is player1's move: %s\n", p1_move);
 }
