@@ -1,0 +1,4 @@
+Adam A. (1/6/18) - set up server code
+Cynthia C. (1/7/18) - set up client code
+Adam A. (1/8/18) - debugging all code 
+Adam A. and Cynthia C. (1/9/18) - program can do player communication between server (player 1) and client (player 2)
