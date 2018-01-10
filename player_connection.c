@@ -1,11 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <stringh>
-#include <errno.h>
+#include "player_connection.h"
 
 int server_handshake(int *to_client){
   int from_client;
@@ -24,7 +17,7 @@ int server_handshake(int *to_client){
   read(from_client, buffer, sizeof(buffer));
   printf("[player1] received: %s\n", buffer);
 
-  return from_client
+  return from_client;
 
 }
 
@@ -45,8 +38,6 @@ int client_handshake(int *to_server){
 
   remove(buffer);
   printf("[player2] removed private pipe\n");
-
-  write(*to_server, ACK, sizeof(buffer));
 
   return from_server;
 }

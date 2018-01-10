@@ -1,4 +1,4 @@
-
+#include "player_connection.c"
 
 int main(){
   int to_client;
@@ -12,7 +12,7 @@ int main(){
 
     printf("[player1] Ready to play with %s\n", p2name);
 
-    char[3][3] tic_tac_toe;
+    char tic_tac_toe[3][3];
 
     //printboard
 
