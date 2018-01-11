@@ -1,0 +1,20 @@
+all: player1 player2
+
+player1: player1.o player_connection.o
+	gcc -o player1 player1.o player_connection.o
+
+player2: plater2.o player_connection.o
+	gcc -o player2 player2.o player_connection.o
+
+player1.o: player1.c player_connection.h
+	gcc -c player1.c
+
+player2.o: player2.c player_connection.h
+	gcc -c player2.c
+
+player_connection.o: player_connection.c player_connection.h
+	gcc -c player_connection.c
+
+clean:
+	rm *.o
+	rm *~
