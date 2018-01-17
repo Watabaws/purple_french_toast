@@ -4,8 +4,11 @@ int main() {
 
   int to_server;
   int from_server;
+  int from_serv;
+  int to_serv
 
   from_server = client_handshake(&to_server);
+  to_serv = server_handshake(&from_serv);
 
   printf("[player2] connected to player 1!\n");
 
@@ -20,7 +23,7 @@ int main() {
 
     //printboard
 
-    read(from_server, p1_move, 4);
+    read(to_serv, p1_move, 4);
 
     printf("Here is player1's move\n");
   }
