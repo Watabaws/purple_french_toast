@@ -14,3 +14,10 @@ player2.o: player2.c
 
 player_connection.o: player_connection.c
 	gcc -c player_connection.c
+
+player_connection.o: player_connection.c
+	gcc -c player_connection.c
+
+clean:
+	rm *.o
+	rm *~
