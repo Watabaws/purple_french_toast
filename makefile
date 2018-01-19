@@ -20,4 +20,4 @@ player_connection.o: player_connection.c
 
 clean:
 	rm *.o
-	rm *~
+
