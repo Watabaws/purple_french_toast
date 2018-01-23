@@ -3,3 +3,4 @@ Cynthia C. (1/7/18) - set up client code
 Adam A. (1/8/18) - debugging all code
 Adam A. and Cynthia C. (1/9/18) - program can do player communication between server (player 1) and client (player 2)
 Adam A. and Cynthia C. (1/10/18) - begin tic tac toe game (sending moves to each player) and corresponding boards shown
+Adam A. and Cynthia C. (1/18/18) - working on making it a two way handshake. Currently can get the two players to connect but player 2 is having trouble reading from player1, even though player1 swears it wrote to player2...

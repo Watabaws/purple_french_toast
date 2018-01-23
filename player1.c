@@ -1,19 +1,35 @@
+
 #include "player_connection.c"
 
 int main(){
   int to_client;
   int from_client;
-  int from_cli;
+  int from_cli, to_cli;
   char p2name[100];
 
   while(1){
     from_client = server_handshake(&to_client); //Set up connection with p2
     //to_cli = client_handshake(&from_cli)
+    printf("[player1] Handshake complete1\n");
     read(from_client, p2name, sizeof(char*));
+    printf("[player1] read complete \n");
 
     printf("[player1] Ready to play with %s\n", p2name);
 
-    printf(" 0  1  2  3 \n");
+    printf("[player1] Performing handshake...\n");
+    to_cli = client_handshake_two(&from_cli);
+
+    printf("[player1] Handshake compelte2 \n");
+    
+    char p1name[100];
+    printf("What is your player name?\n");
+    fgets(p1name, 100, stdin);
+    *strchr(p1name, '\n') = 0;
+    write(to_cli, p1name, sizeof(char*));
+
+    printf("Sent name to p2!! \n");
+
+/*    printf(" 0  1  2  3 \n");
     char tic_tac_toe[3][3] = {0};
     tic_tac_toe[0][0] = 'X';
     for(int i = 0; i < 3; i++){
@@ -39,7 +55,7 @@ int main(){
 
     printf("Here's your move (row col): %s\n", move);
 
-    write(to_client, move, sizeof(char*));
+    write(to_cli, move, sizeof(char*)); */
 
   }
 }
