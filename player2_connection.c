@@ -1,6 +1,6 @@
 #include "player_connection.h"
 
-inc conn_p1(){
+int conn_p1(){
   printf("Hi Player 2! What would you like your username to be\n");
 
   char p2name[100];
