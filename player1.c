@@ -1,43 +1,53 @@
 
 #include "player1_connection.c"
 
+void test_conn(){
+  char test_mess[50] = "Hi player2!!";
+
+  write(to_p2, test_mess, sizeof(test_mess));
+
+  read(from_p2, test_mess, sizeof(test_mess));
+
+  printf("P2 said: %s\n", test_mess);
+}
+
 int main(){
   int from_p2;
   int to_p2 = conn_p2(&from_p2);
-  
-  char test_mess[50] = "Hi player2!!";
-  
-  write(to_p2, test_mess, sizeof(test_mess));
-  
-  read(from_p2, test_mess, sizeof(test_mess));
-  
-  printf("P2 said: %s\n", test_mess);
 
-/*    printf(" 0  1  2  3 \n");
-    char tic_tac_toe[3][3] = {0};
-    tic_tac_toe[0][0] = 'X';
-    for(int i = 0; i < 3; i++){
-      for(int j = 0; j < 3; j++){
-        if (j ==0){
-          printf(" %d ", i+1);
-        }
-        if (tic_tac_toe[i][j] == 0){
-          printf(" _ ");
-        }
-        else{
-          printf(" %c ",tic_tac_toe[i][j]);
-        }
-      }
-      printf("\n");
-    }
+  printf("Time to play Tic-Tac-Toe. Your move!!\n")
 
-    char move[4];
-    printf("Player1 enter your move in this format: row col\n");
+  char tic_tac_toe[3][3] = {0};
 
-    fgets(move, 4, stdin);
-    *strchr(move, '\n') = 0;
+  while(check_win()){
+    printf("The current board: \n");
+    print_board(tic_tac_toe);
 
-    printf("Here's your move (row col): %s\n", move);
+    printf("Get ready to make your move.\n");
 
-    write(to_cli, move, sizeof(char*)); */
+    int move[2] = get_move();
+    tic_tac_toe[move[0]][move[1]] = 'X';
+
+    check_move(move);
+
+    write(to_p2, tic_tac_toe, sizeof(char) * 9);
+
+    printf("Waiting for Player 2's move\n");
+
+    read(from_p2, tic_tac_toe, sizeof(char) * 9);
+
+    printf("Move received!\n");
+  }
+
+  /*
+  char move[4];
+  printf("Player1 enter your move in this format: row col\n");
+
+  fgets(move, 4, stdin);
+  *strchr(move, '\n') = 0;
+
+  printf("Here's your move (row col): %s\n", move);
+
+  write(to_cli, move, sizeof(char*));
+  */
 }
