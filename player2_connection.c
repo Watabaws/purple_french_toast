@@ -1,6 +1,6 @@
 #include "player_connection.h"
 
-int conn_p1(){
+int conn_p1(int *from_p1){
   printf("Hi Player 2! What would you like your username to be\n");
 
   char p2name[100];
@@ -22,6 +22,10 @@ int conn_p1(){
   printf("Found player: %s\n", p1name);
 
   printf("Time to play!!\n");
+
+  *from_p1 = ott;
+
+  return tto;
 
 
 }

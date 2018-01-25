@@ -2,7 +2,8 @@
 #include "player1_connection.c"
 
 int main(){
-    int p2_comm = conn_p2();
+  int from_p2;
+  int to_p2 = conn_p2(&from_p2);
 
 /*    printf(" 0  1  2  3 \n");
     char tic_tac_toe[3][3] = {0};

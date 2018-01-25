@@ -1,5 +1,6 @@
 #include "player2_connection.c"
 
 int main() {
-  int p1_comm =  conn_p1();
+  int from_p1;
+  int to_p1 = conn_p1(&from_p1);
 }

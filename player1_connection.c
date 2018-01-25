@@ -1,6 +1,6 @@
 #include "player_connection.h"
 
-int conn_p2(){
+int conn_p2(int *from_p2){
   printf("Hi Player 1! What would you like your name to be?\n");
 
   char p1name[100];
@@ -31,6 +31,9 @@ int conn_p2(){
   int ott = open("One_to_Two", O_WRONLY, 0);
 
   write(ott, p1name, sizeof(p1name));
+
+  *from_p2 = tto;
+  return ott;
 
 
 
