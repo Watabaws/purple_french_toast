@@ -6,7 +6,3 @@
 #include <sys/stat.h>
 #include <string.h>
 #include <errno.h>
-
-int client_handshake(int * to_client);
-
-int server_handshake(int * to_server);

@@ -1,4 +1,4 @@
-#include "player_connection.c"
+#include "player2_connection.c"
 
 int main() {
 
