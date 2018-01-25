@@ -1,13 +1,7 @@
 
-#include "player_connection.c"
+#include "player1_connection.c"
 
 int main(){
-  int to_client;
-  int from_client;
-  int from_cli, to_cli;
-  char p2name[100];
-
-  while(1){
     int p2_comm = conn_p2();
 
 /*    printf(" 0  1  2  3 \n");
@@ -37,6 +31,4 @@ int main(){
     printf("Here's your move (row col): %s\n", move);
 
     write(to_cli, move, sizeof(char*)); */
-
-  }
 }

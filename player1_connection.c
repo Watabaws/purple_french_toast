@@ -8,7 +8,7 @@ int conn_p2(){
   *strchr(p1name, '\n') = 0;
 
   printf("Awesome! Welcome to R-C-Ade! Let's wait for player 2\n");
-  mkfifo("Two_to_One");
+  mkfifo("Two_to_One", 0600);
 
   int tto = open("Two_to_One", O_RDONLY, 0);
 
@@ -17,7 +17,7 @@ int conn_p2(){
   int reply = 0;
   char reply_str[4];
   //while(reply){
-    read(tto, p2name, sizeof(p2name))
+    read(tto, p2name, sizeof(p2name));
 
     printf("Found a player: %s\n", p2name);
   //  printf("Start a game with this player? Enter 1 to accept, and 0 to wait for another player.\n")
