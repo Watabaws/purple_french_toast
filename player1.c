@@ -4,6 +4,14 @@
 int main(){
   int from_p2;
   int to_p2 = conn_p2(&from_p2);
+  
+  char test_mess[50] = "Hi player2!!";
+  
+  write(to_p2, test_mess, sizeof(test_mess));
+  
+  read(from_p2, test_mess, sizeof(test_mess));
+  
+  printf("P2 said: %s\n", test_mess);
 
 /*    printf(" 0  1  2  3 \n");
     char tic_tac_toe[3][3] = {0};
