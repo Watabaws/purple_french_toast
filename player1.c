@@ -34,6 +34,11 @@ int main(){
     printf("Get ready to make your move.\n");
 
     int * move = get_move();
+    while(tic_tac_toe[move[0]][move[1]] != '-'){
+        printf("Invalid move!\n");
+        move = get_move();
+    }
+        
     tic_tac_toe[move[0]][move[1]] = 'X';
     
     print_board(tic_tac_toe);
@@ -56,6 +61,8 @@ int main(){
         print_board(tic_tac_toe);
 
         tic_tac_toe[move[0]][move[1]] = 'O';
+        
+        print_board(tic_tac_toe);
 
         printf("precheck: %d\n",won);
         won = CheckTicTacToe(tic_tac_toe);

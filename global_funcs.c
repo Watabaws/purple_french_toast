@@ -137,6 +137,18 @@ int check_win(int shmove[2], char ttt[3][3]){
   return won;
 }
 
+int fullBoard(char board[3][3]){
+    int i, j;
+    for(i = 0; i < 3; i++){
+        for(j = 0; j < 3; j++){
+            if(board[i][j] == '-'){
+                return 0;
+            }
+        }
+    }
+    return 1000;
+}
+
 int CheckTicTacToe(char board[3][3]){
   int i;
   for (i = 0; i < 3; i++){
@@ -157,9 +169,10 @@ int CheckTicTacToe(char board[3][3]){
       printf("I'M RETURNING3\n");
     return(board[1][1] == 'O' ? -1 : 1);
   }
-  return 0;
+  return fullBoard(board);
   //0 = no win; -1 = O won; 1 = X won
 }
+
 
 void declare_winner(int playr){
     if(playr == 1){
