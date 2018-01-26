@@ -92,7 +92,7 @@ int * get_move(){
   while(rmove >= 3){
     printf("What row would you like to place your piece on?\n");
     fgets(response, 5, stdin);
-    printf("This is your row: %s", response);   
+    //printf("This is your row: %s", response);   
     *strchr(response, '\n') = 0;
     rmove = atoi(response); //Test out what happens if I give this like a letter or smth
     if(rmove >= 3){
@@ -153,20 +153,20 @@ int CheckTicTacToe(char board[3][3]){
   int i;
   for (i = 0; i < 3; i++){
     if ( (board[i][0] != '-') && (board[i][0] == board[i][1]) && (board[i][0] == board[i][2]) ){
-        printf("I'M RETURNING0\n");
+        //printf("I'M RETURNING0\n");
       return(board[i][0] == 'O' ? -1 : 1);
     }
     else if ( (board[0][i] != '-') && (board[0][i] == board[1][i]) && (board[0][i] == board[2][i]) ){
-        printf("I'M RETURNING1\n");
+        //printf("I'M RETURNING1\n");
       return(board[0][i] == 'O' ? -1 : 1);
     }
   }
   if ( (board[0][0] != '-') && (board[0][0] == board[1][1]) && (board[0][0] == board[2][2])){
-      printf("I'M RETURNING2\n");
+      //printf("I'M RETURNING2\n");
     return(board[0][0] == 'O' ? -1 : 1);
   }
   if ( (board[2][0] != '-') && (board[2][0] == board[1][1]) && (board[0][0] == board[0][2])){
-      printf("I'M RETURNING3\n");
+      //printf("I'M RETURNING3\n");
     return(board[1][1] == 'O' ? -1 : 1);
   }
   return fullBoard(board);

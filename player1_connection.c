@@ -1,4 +1,11 @@
-#include "global_funcs.c"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <errno.h>
 
 int conn_p2(int *from_p2){
   printf("Hi Player 1! What would you like your name to be?\n");

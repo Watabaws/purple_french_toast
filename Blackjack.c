@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 
 
@@ -18,9 +20,9 @@ int shuffle(int cards[52]){
     cards[i] = cards[randnum];
     cards[randnum] = temp;
   }
-  for (int i = 0; i < 52; i++){
+  /*for (int i = 0; i < 52; i++){
     printf ("%d \n", cards[i]);
-  }
+  }*/
 }
 
 
@@ -40,14 +42,27 @@ int ConvertCardToVal(int card){
 
 int dealCard(int i, int cards[]){
   if (cards[i] == 1){
-    printf("Would you like to use the Ace with a value of 1 or 11?");
+    int ace = 1;
+    printf("Would you like to use the Ace with a value of 1 or 11?(The default value is 1)\n");
+    char response[5];
+    fgets(response, 5, stdin);
+    *strchr(response, '\n') = 0;
+    
+    ace = atoi(response);
+
+    if(ace == 1){
+        return 1;
+    }
+    else{
+        return 14;
+    }
   }
   return cards[i];
 }
 
 
 void pic(int num){
-  if (num == 1){
+  if (num == 1 || num == 14){
     printf("*******\n");
     printf("*     *\n");
     printf("*     *\n");
@@ -90,7 +105,7 @@ void pic(int num){
 }
 
 
-int main(){
+/*int main(){
   int deck[52] = {0};
   shuffle(deck);
   int playerOneSum = 0;
@@ -103,4 +118,4 @@ int main(){
   playerOneSum += ConvertCardToVal(dealCard(cardIn, deck));
   printf("%d \n", playerOneSum);
 
-}
+}*/

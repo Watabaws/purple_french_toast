@@ -1,5 +1,7 @@
 
 #include "player1_connection.c"
+#include "p1_ttt.c"
+#include "p1_bj.c"
 
 /*void test_conn(){
   char test_mess[50] = "Hi player2!!";
@@ -15,72 +17,22 @@ int main(){
   int from_p2;
   int to_p2 = conn_p2(&from_p2);
 
-  printf("Time to play Tic-Tac-Toe. Your move!!\n");
-
-  char tic_tac_toe[3][3];
-  int i,j;
+  //player_1_ttt(to_p2, from_p2);
+  printf("Player 1! What game would you like to play? Type in 0 for tic-tac-toe and any other number for blackjack!\n");
   
-  for(i = 0; i < 3; i++){
-      for(j = 0; j < 3; j++){
-          tic_tac_toe[i][j] = '-';
-      }
+  char respons[5];
+  fgets(respons, 5, stdin);
+  *strchr(respons, '\n') = 0;
+  
+  int response = atoi(respons);
+  
+  write(to_p2, &response, sizeof(response));
+  
+  if(!response){
+      player_1_ttt(to_p2, from_p2);
   }
-
-  int won = 0;
-  while(!won){
-    printf("The current board: \n");
-    print_board(tic_tac_toe);
-
-    printf("Get ready to make your move.\n");
-
-    int * move = get_move();
-    while(tic_tac_toe[move[0]][move[1]] != '-'){
-        printf("Invalid move!\n");
-        move = get_move();
-    }
-        
-    tic_tac_toe[move[0]][move[1]] = 'X';
-    
-    print_board(tic_tac_toe);
-    //printf("Sending first arg: %d\n", move[0]);
-    //printf("Sending second arg: %d\n", move[1]);
-    printf("precheck: %d\n",won);
-    won = CheckTicTacToe(tic_tac_toe);
-    printf("postcheck: %d\n", won);
-    printf("Sending first arg: %d\n", move[0]);
-    printf("Sending second arg: %d\n", move[1]);
-    write(to_p2, &move[0], sizeof(int) * 2);
-    write(to_p2, &move[1], sizeof(int) * 2);
-
-    if(!won){
-        printf("Waiting for Player 2's move\n");
-
-        read(from_p2, move, sizeof(int) * 2);
-        printf("Move received!\n");
-        
-        print_board(tic_tac_toe);
-
-        tic_tac_toe[move[0]][move[1]] = 'O';
-        
-        print_board(tic_tac_toe);
-
-        printf("precheck: %d\n",won);
-        won = CheckTicTacToe(tic_tac_toe);
-        printf("postcheck: %d\n", won);
-    }
-    }
-
-    declare_winner(won);
-  return 0;
-  /*
-  char move[4];
-  printf("Player1 enter your move in this format: row col\n");
-
-  fgets(move, 4, stdin);
-  *strchr(move, '\n') = 0;
-
-  printf("Here's your move (row col): %s\n", move);
-
-  write(to_cli, move, sizeof(char*));
-  */
+  else{
+      p1_blackjack(to_p2, from_p2);
+  }
 }
+        
