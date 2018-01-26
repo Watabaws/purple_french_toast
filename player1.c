@@ -19,7 +19,7 @@ int main(){
 
   char tic_tac_toe[3][3] = {0};
 
-  int won = 1;
+  int won = 100;
   while(won){
     printf("The current board: \n");
     print_board(tic_tac_toe);
@@ -28,32 +28,42 @@ int main(){
 
     int * move = get_move();
     tic_tac_toe[move[0]][move[1]] = 'X';
-
-    won = check_win(move, tic_tac_toe);
+    
+    print_board(tic_tac_toe);
+      printf("Sending first arg: %d\n", move[0]);
+      printf("Sending second arg: %d\n", move[1]);
+      printf("precheck: %d\n",won);
+      won = CheckTicTacToe(tic_tac_toe);
+      printf("postcheck: %d\n", won);
 
     if(won){
-      write(to_p2, move, sizeof(int) * 9);
+      printf("Sending first arg: %d\n", move[0]);
+      printf("Sending second arg: %d\n", move[1]);
+      write(to_p2, &move[0], sizeof(int) * 2);
+      write(to_p2, &move[1], sizeof(int) * 2);
 
       printf("Waiting for Player 2's move\n");
 
       read(from_p2, move, sizeof(int) * 2);
       printf("Move received!\n");
+      
+      print_board(tic_tac_toe);
 
       tic_tac_toe[move[0]][move[1]] = 'O';
 
-      won = check_win(move, tic_tac_toe);
+      printf("precheck: %d\n",won);
+      won = CheckTicTacToe(tic_tac_toe);
+      printf("postcheck: %d\n", won);
       if(!won){
         printf("Player 2 wins.\n");
       }
     }
     else{
       printf("You won!\n");
-    }
-
-    return 0;
+    }    
   }
 
-
+  return 0;
   /*
   char move[4];
   printf("Player1 enter your move in this format: row col\n");

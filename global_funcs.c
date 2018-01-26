@@ -8,8 +8,9 @@
 #include <errno.h>
 
 void print_board(char ttt[3][3]){
-  printf(" 0  1  2  3 \n");
+  printf(" 0  1  2  \n");
   for(int i = 0; i < 3; i++){
+    printf("%d ", i);
     for(int j = 0; j < 3; j++){
       printf("[%c] ", ttt[i][j]);
     }
@@ -86,28 +87,25 @@ int check_horizontal(int move[2], char ttt[3][3]){
 }
 
 int * get_move(){
-  char * response;
+  char * response = (char *) malloc(5);
   int rmove = 4, cmove = 4;
-  while(rmove < 3){
+  while(rmove >= 3){
     printf("What row would you like to place your piece on?\n");
-    fgets(response, 2, stdin);
+    fgets(response, 5, stdin);
+    printf("This is your row: %s", response);   
     *strchr(response, '\n') = 0;
     rmove = atoi(response); //Test out what happens if I give this like a letter or smth
-    if(rmove < 3){
+    if(rmove >= 3){
       printf("Not a valid row.\n");
     }
   }
 
-  printf("What column would you like to place your piece on? \n");
-  fgets(response, 2, stdin);
-  *strchr(response, '\n') = 0;
-  cmove = atoi(response);
-  while(cmove < 3){
+  while(cmove >= 3){
     printf("What column would you like to place your piece on?\n");
-    fgets(response, 2, stdin);
+    fgets(response, 5, stdin);
     *strchr(response, '\n') = 0;
     cmove = atoi(response); //Test out what happens if I give this like a letter or smth
-    if(cmove < 3){
+    if(cmove >= 3){
       printf("Not a valid column.\n");
     }
   }
@@ -118,10 +116,14 @@ int * get_move(){
   return to_ret;
 }
 
-int check_win(int move[2], char ttt[3][3]){
+int check_win(int shmove[2], char ttt[3][3]){
+  int move[2];
+  move[0] = shmove[0];
+  move[1] = shmove[1];
+  
   char piece = ttt[move[0]][move[1]];
   int won;
-
+  
   won = check_horizontal(move, ttt);
   won += check_vertical(move, ttt);
 
@@ -134,3 +136,28 @@ int check_win(int move[2], char ttt[3][3]){
 
   return won;
 }
+
+int CheckTicTacToe(char board[3][3]){
+  int i;
+  for (i = 0; i < 3; i++){
+    if ( (board[i][0] != '0') && (board[i][0] == board[i][1]) && (board[i][0] == board[i][2]) ){
+        printf("I'M RETURNING\n")
+      return(board[i][0] == 'O' ? -1 : 1);
+    }
+    else if ( (board[0][i] != '0') && (board[0][i] == board[1][i]) && (board[0][i] == board[2][i]) ){
+        printf("I'M RETURNING\n")
+      return(board[0][i] == 'O' ? -1 : 1);
+    }
+  }
+  if ( (board[0][0] != '0') && (board[0][0] == board[1][1]) && (board[0][0] == board[2][2])){
+      printf("I'M RETURNING\n")
+    return(board[0][0] == 'O' ? -1 : 1);
+  }
+  if ( (board[2][0] != '0') && (board[2][0] == board[1][1]) && (board[0][0] == board[0][2])){
+      printf("I'M RETURNING\n")
+    return(board[1][1] == 'O' ? -1 : 1);
+  }
+  return 0;
+  //0 = no win; -1 = O won; 1 = X won
+}
+

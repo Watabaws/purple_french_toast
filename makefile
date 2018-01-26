@@ -12,11 +12,15 @@ player1.o: player1.c
 player2.o: player2.c
 	gcc -c player2.c
 
-player1_connection.o: player1_connection.c
+player1_connection.o: player1_connection.c global_funcs.o
 	gcc -c player1_connection.c
 
-player2_connection.o: player2_connection.c
+player2_connection.o: player2_connection.c global_funcs.o
 	gcc -c player2_connection.c
+	
+global_funcs.o: global_funcs.c
+	gcc -c global_funcs.c
+	
 
 clean:
 	rm *.o
