@@ -15,9 +15,15 @@ int main() {
   int to_p1 = conn_p1(&from_p1);
 
   printf("Time to play Tic-Tac-Toe!\n");
-  char tic_tac_toe[3][3] = {0};
-  int won = 100;
-  while(won){
+  char tic_tac_toe[3][3];
+  int i,j;
+  for(i = 0; i < 3; i++){
+      for(j = 0; j < 3; j++){
+          tic_tac_toe[i][j] = '-';
+      }
+  }
+  int won = 0;
+  while(!won){
     printf("The current board: \n");
     print_board(tic_tac_toe);
 
@@ -38,25 +44,20 @@ int main() {
 
     tic_tac_toe[move[0]][move[1]] = 'X';
     won = CheckTicTacToe(tic_tac_toe);
+    print_board(tic_tac_toe);
+    if(!won){
+        move = get_move();
 
-    if(won){
-      print_board(tic_tac_toe);
-
-      move = get_move();
-
-      tic_tac_toe[move[0]][move[1]] = 'O';
-      
-      printf("precheck: %d\n",won);
-      won = CheckTicTacToe(tic_tac_toe);
-      printf("postcheck: %d\n", won);
-      write(to_p1, move, sizeof(int) * 2);
-      if(!won){
-        printf("You win!\n");
-      }
-    }
-    else{
-      printf("Player 1 wins!\n");
+        tic_tac_toe[move[0]][move[1]] = 'O';
+        
+        printf("precheck: %d\n",won);
+        won = CheckTicTacToe(tic_tac_toe);
+        printf("postcheck: %d\n", won);
+        
+        write(to_p1, move, sizeof(int) * 2);
     }
   }
+  
+  declare_winner(won);
 
 }
