@@ -25,7 +25,6 @@ int main(){
           tic_tac_toe[i][j] = '-';
       }
   }
-  
 
   int won = 0;
   while(!won){
@@ -48,18 +47,20 @@ int main(){
     write(to_p2, &move[0], sizeof(int) * 2);
     write(to_p2, &move[1], sizeof(int) * 2);
 
-    printf("Waiting for Player 2's move\n");
+    if(!won){
+        printf("Waiting for Player 2's move\n");
 
-    read(from_p2, move, sizeof(int) * 2);
-    printf("Move received!\n");
-    
-    print_board(tic_tac_toe);
+        read(from_p2, move, sizeof(int) * 2);
+        printf("Move received!\n");
+        
+        print_board(tic_tac_toe);
 
-    tic_tac_toe[move[0]][move[1]] = 'O';
+        tic_tac_toe[move[0]][move[1]] = 'O';
 
-    printf("precheck: %d\n",won);
-    won = CheckTicTacToe(tic_tac_toe);
-    printf("postcheck: %d\n", won);
+        printf("precheck: %d\n",won);
+        won = CheckTicTacToe(tic_tac_toe);
+        printf("postcheck: %d\n", won);
+    }
     }
 
     declare_winner(won);
