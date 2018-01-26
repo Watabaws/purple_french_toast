@@ -1,4 +1,4 @@
-#include "header_funcs.h"
+#include "global_funcs.h"
 
 int conn_p2(int *from_p2){
   printf("Hi Player 1! What would you like your name to be?\n");

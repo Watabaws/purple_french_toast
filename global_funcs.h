@@ -122,7 +122,7 @@ int check_win(int move[2], char ttt[3][3]){
   char piece = ttt[move[0]][move[1]];
   int won;
 
-  won = check_horizontal(move[2], ttt);
+  won = check_horizontal(move, ttt);
   won += check_vertical(move, ttt);
 
   if(move[0] == move[1]){

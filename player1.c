@@ -1,7 +1,7 @@
 
 #include "player1_connection.c"
 
-void test_conn(){
+/*void test_conn(){
   char test_mess[50] = "Hi player2!!";
 
   write(to_p2, test_mess, sizeof(test_mess));
@@ -9,35 +9,50 @@ void test_conn(){
   read(from_p2, test_mess, sizeof(test_mess));
 
   printf("P2 said: %s\n", test_mess);
-}
+}*/
 
 int main(){
   int from_p2;
   int to_p2 = conn_p2(&from_p2);
 
-  printf("Time to play Tic-Tac-Toe. Your move!!\n")
+  printf("Time to play Tic-Tac-Toe. Your move!!\n");
 
   char tic_tac_toe[3][3] = {0};
 
-  while(check_win()){
+  int won = 1;
+  while(won){
     printf("The current board: \n");
     print_board(tic_tac_toe);
 
     printf("Get ready to make your move.\n");
 
-    int move[2] = get_move();
+    int * move = get_move();
     tic_tac_toe[move[0]][move[1]] = 'X';
 
-    check_move(move);
+    won = check_win(move, tic_tac_toe);
 
-    write(to_p2, tic_tac_toe, sizeof(char) * 9);
+    if(won){
+      write(to_p2, move, sizeof(int) * 9);
 
-    printf("Waiting for Player 2's move\n");
+      printf("Waiting for Player 2's move\n");
 
-    read(from_p2, tic_tac_toe, sizeof(char) * 9);
+      read(from_p2, move, sizeof(int) * 2);
+      printf("Move received!\n");
 
-    printf("Move received!\n");
+      tic_tac_toe[move[0]][move[1]] = 'O';
+
+      won = check_win(move, tic_tac_toe);
+      if(!won){
+        printf("Player 2 wins.\n");
+      }
+    }
+    else{
+      printf("You won!\n");
+    }
+
+    return 0;
   }
+
 
   /*
   char move[4];
