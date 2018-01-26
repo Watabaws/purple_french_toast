@@ -41,6 +41,7 @@ int ConvertCardToVal(int card){
 int dealCard(int i, int cards[]){
   if (cards[i] == 1){
     printf("Would you like to use the Ace with a value of 1 or 11?");
+    //if yes cards[i] = 14;
   }
   return cards[i];
 }
