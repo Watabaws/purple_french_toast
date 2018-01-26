@@ -5,10 +5,14 @@ Adam A. and Cynthia C. (1/9/18) - program can do player communication between se
 Adam A. and Cynthia C. (1/10/18) - begin tic tac toe game (sending moves to each player) and corresponding boards shown
 Adam A. and Cynthia C. (1/18/18) - working on making it a two way handshake. Currently can get the two players to connect but player 2 is having trouble reading from player1, even though player1 swears it wrote to player2...
 Adam A. (1/20/18) - Had the realization that there's no need to follow a server format for this project...
+Cynthia C. (1/21/18) - wrote some game code for tic tac toe
 Adam A. (1/24/18) - Wrote the connection code.
+Cynthia C. (1/21/18) - finished tic tac toe and began battleship
 Adam A. (1/25/18) - Wrote out tic-tac-toe/connection code.
+Cynthia C. (1/25/18) - finished battleship and began connect 4
 Adam A. (1/26/18) - Tested and bugged tic-tac-toe. Connection works, but mechanics (like winning) need to get fixed up
 Adam A. (1/26/18) - You can win now! kinda... both players recognize the other as the winner which is kind of weird..
 Adam A. (1/26/18) - Winning works!! Player1 kept playing the match after winning so it was getting weird.
+Cynthia C. (1/26/18) - Finished Blackjack, almost finished Minesweeper
 Adam A. (1/26/18) - Took Cynthia's existing Blackjack code and made it a reality w our connection system!!
 Adam A. (1/26/18) - Added ability to choose which game to play.
