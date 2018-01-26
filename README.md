@@ -37,5 +37,5 @@ Then return to the second terminal and type: ./player2
 Finally select the game you’d like to play. 
 Good Luck!
 
-##Known Bugs
+## Known Bugs
 Unable to split in Blackjack 
