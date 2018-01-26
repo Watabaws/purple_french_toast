@@ -18,27 +18,47 @@ player2.c - sends messages to player 1 and uses functions from global_funcs.c to
 BattleShip.c, Minesweeper, Connect 4 - didn’t have time to implement, game code
 
 ## Game Instructions
+
 Tic Tac Toe - objective: get three in a row
+
 Take turns filling in a board
+
 Try to get three of your pieces (either a ‘X’ or ‘O’) in a row
+
 Win! 
+
 BlackJack - objective: get closer to 21 than your opponent (but not over 21)
+
 Draw two cards 
+
 Continue to Hit (draw another card) until you Stand (abstain from card drawing) or reach over 21. 
+
 Compare and win!
+
 Values of Cards:
+
 Aces: 1 or 11 (you can choose but if you input something invalid will default to 1)
+
 Face Cards: 10
+
 Everything else: the number on the card
 
+
 ## Instructions
+
 Open terminal and cd into purple_french_toast
 Type in: make player1
+
 Open a second terminal and cd into purple_french_toast
+
 Type in: make player2
+
 Then return to the first terminal and type: ./player1
+
 Then return to the second terminal and type: ./player2
+
 Finally select the game you’d like to play. 
+
 Good Luck!
 
 ## Known Bugs
