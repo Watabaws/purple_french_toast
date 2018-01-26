@@ -13,7 +13,7 @@ int addToBoard(char board[6][7], int col, char charAdded){
 }
 
 int CheckConnectFour(char board[6][7]){
-  
+
 }
 
 void printBoard(char board[6][7]){
@@ -42,7 +42,7 @@ int main(){
   char connect_four[6][7] = {0};
   printBoard(connect_four);
   addToBoard(connect_four, 4, 'R');
-  addToBoard(connect_four, 5, 'B');
+  addToBoard(connect_four, 7, 'B');
   addToBoard(connect_four, 4, 'B');
   addToBoard(connect_four, 4, 'B');
   addToBoard(connect_four, 4, 'B');
