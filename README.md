@@ -1,5 +1,8 @@
 # purple_french_toast
 
+# purple_french_toast
+## R-C-ADE
+
 Cynthia Cheng and Adam Abbas 
 Period 10 
 
@@ -11,14 +14,25 @@ global_funcs.c - contains game functions that player1.c and player2.c use
 
 player_connection.c - creates a connection between player1 and player2 using pipes 
 
-player1.c - sends messages to player 2 and uses functions from global_funcs.c to make their next move, also breaks connection between users 
+player1.c - The wrapper code for player 1, calls the functions to connect and play with player 1
 
-player2.c - sends messages to player 1 and uses functions from global_funcs.c to make their next move, also breaks connection between users 
+player2.c - The wrapper code for player 2, calls the functions to connect and play with player 1 
 
-BattleShip.c, Minesweeper, Connect 4 - didn’t have time to implement, game code
+P1_bj.c - Code to play blackjack as player 1, called by player1.c
+
+P2_bj.c - Code to play blackjack as player 2, called by player2.c
+
+P1_ttt.c - Code to play tic-tac-toe as player 1, called by player1.c
+
+P2_ttt.c - Code to play tic-tac-toe as player 2, called by player2.c
+
+Player1_connection.c - Code to establish a connection with player 2, giving you file descriptors to talk to and listen to player 2
+
+Player2_connection.c - Code to establish a connection with player 1, giving you file descriptors to talk to and listen to player 1
+
+BattleShip.c, Minesweeper.c, ConnectFour.c - didn’t have time to implement, game code
 
 ## Game Instructions
-
 Tic Tac Toe - objective: get three in a row
 
 Take turns filling in a board
@@ -43,23 +57,22 @@ Face Cards: 10
 
 Everything else: the number on the card
 
-
 ## Instructions
 
 Open terminal and cd into purple_french_toast
-Type in: make player1
 
-Open a second terminal and cd into purple_french_toast
+Type in: `make`
 
-Type in: make player2
+In the first terminal type: `./player1`
 
-Then return to the first terminal and type: ./player1
+Open up a second terminal and type: `./player2`
 
-Then return to the second terminal and type: ./player2
-
-Finally select the game you’d like to play. 
+Follow the instructions! You’ll be able to establish a connection, pick a game, play it, and have fun!!
 
 Good Luck!
 
-## Known Bugs
+##Known Bugs
+
 Unable to split in Blackjack 
+
+Certain inputs (that are completely not what we asked for) can lead to a segfault.
