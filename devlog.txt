@@ -16,3 +16,4 @@ Adam A. (1/26/18) - Winning works!! Player1 kept playing the match after winning
 Cynthia C. (1/26/18) - Finished Blackjack, almost finished Minesweeper
 Adam A. (1/26/18) - Took Cynthia's existing Blackjack code and made it a reality w our connection system!!
 Adam A. (1/26/18) - Added ability to choose which game to play.
+Adam A. (1/26/18) - Ace selection!
