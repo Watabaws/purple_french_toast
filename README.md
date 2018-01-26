@@ -8,9 +8,13 @@ A program simulating an arcade, where you can select from multiple games (Tic Ta
 
 ## Files
 global_funcs.c - contains game functions that player1.c and player2.c use
+
 player_connection.c - creates a connection between player1 and player2 using pipes 
+
 player1.c - sends messages to player 2 and uses functions from global_funcs.c to make their next move, also breaks connection between users 
+
 player2.c - sends messages to player 1 and uses functions from global_funcs.c to make their next move, also breaks connection between users 
+
 BattleShip.c, Minesweeper, Connect 4 - didn’t have time to implement, game code
 
 ## Game Instructions
