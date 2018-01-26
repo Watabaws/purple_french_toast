@@ -1,6 +1,4 @@
 # purple_french_toast
-
-# purple_french_toast
 ## R-C-ADE
 
 Cynthia Cheng and Adam Abbas 
@@ -71,7 +69,7 @@ Follow the instructions! You’ll be able to establish a connection, pick a game
 
 Good Luck!
 
-##Known Bugs
+## Known Bugs
 
 Unable to split in Blackjack 
 
