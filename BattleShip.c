@@ -62,7 +62,16 @@ void attackBoard(char board[10][10], int x, int y){
   }
 }
 
-
+int checkGame(char board[10][10]){
+  for (int i =0; i <10; i++){
+    for (int j =0; j <10; j++){
+      if (board[i][j] =='#'){
+        return 0; //not end of game
+      }
+    }
+  }
+  return 1; //end of game!!
+}
 
 void printBoard(char board[10][10]){
   printf("   ");
@@ -96,7 +105,10 @@ int main(){
   placeShip(battleshipBoard, 2, 5, 5, 'U');
   placeShip(battleshipBoard, 2, 5, 5, 'D');
   attackBoard(battleshipBoard, 5,5);
+  attackBoard(battleshipBoard, 4,5);
+  attackBoard(battleshipBoard, 6,5);
   printBoard(battleshipBoard);
   attackBoard(battleshipBoard, 1,1);
   printBoard(battleshipBoard);
+  printf("%d\n", checkGame(battleshipBoard));
 }
